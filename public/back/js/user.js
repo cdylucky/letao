@@ -9,7 +9,7 @@ $(function() {
 
   render();
 
-  //ajax请求动态渲染数据和分页
+  //ajax请求动态渲染数据和分页:
   function render() {
 
     //ajax请求动态渲染数据
@@ -41,5 +41,37 @@ $(function() {
 
     });
   }
+
+
+  //用户启用禁用的功能:
+  $('tbody').on('click','.btn',function() {
+    $('#userModal').modal('show');
+
+    //获取用户id
+    var id = $(this).parent().data('id');
+    var isDelete = $(this).hasClass('btn-danger')? 0:1;
+
+    //给btn_confirm注册点击事件，通过ajax请求更新数据
+    $('.btn_confirm').off().on('click',function() {
+      $.ajax({
+        type: 'post',
+        url: '/user/updateUser',
+        data: {
+          id:id,
+          isDelete: isDelete
+        },
+        success:function(info){
+          console.log(info);
+          if(info.success) {
+            //重新渲染当前页
+            render();
+            //关闭模态框
+            $('#userModal').modal('hide');
+          }
+        }
+      });
+    })
+
+  })
 
 })
