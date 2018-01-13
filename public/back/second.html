@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>乐淘管理系统-一级分类</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="css/common.css">
 </head>
@@ -65,8 +66,34 @@
       <li class="active">二级分类</li>
     </ol>
 
-    <!--主要内容-->
-    <div>空</div>
+    <!--主要内容区-->
+    <div class="lt_content">
+      <button class="btn btn-default mb_20 btn_add">添加分类</button>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td width="10%">序号</td>
+            <td width="30%">一级分类名称</td>
+            <td width="30%">二级分类名称</td>
+            <td width="30%">二级分类LOGO</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!--挖个坑，动态渲染-->
+          <tr>
+            <td>1</td>
+            <td>运动馆</td>
+            <td>李宁</td>
+            <td><img src="images/none.png" width="50" height="50"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!--分页容器-->
+      <div class="paginator-box">
+        <ul id="paginator"></ul>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -92,9 +119,53 @@
   </div>
 </div>
 
+<!--添加分类模态框-->
+<div id="addModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <!--输入一级分类内容框-->
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入一级分类的名称" name="categoryName">
+          </div>
+          <!--点击按钮-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary">添加</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--分页模板-->
+<script type="text/html" id="tmp1">
+  {{ each rows v i}}
+    <tr>
+      <td>{{ (page - 1) * size + i + 1}}</td>
+      <td>{{ v.categoryName }}</td>
+      <td>{{ v.brandName }}</td>
+      <td><img src="{{v.brandLogo?v.brandLogo:'images/none.png'}}" width="50" height="50"></td>
+    </tr>
+  {{ /each}}
+</script>
+
+
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/second.js"></script>
 </body>
 </html>
