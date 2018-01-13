@@ -128,12 +128,49 @@
         <h4 class="modal-title">添加分类</h4>
       </div>
       <div class="modal-body">
-        <!--输入一级分类内容框-->
         <form>
+          <!--选择一级分类-->
           <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入一级分类的名称" name="categoryName">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <span class="dropdown-text">请选择一级分类</span>
+
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+
+                <li><a href="#">运动馆</a></li>
+                <li><a href="#">运动馆</a></li>
+                <li><a href="#">运动馆</a></li>
+                <li><a href="#">运动馆</a></li>
+              </ul>
+              <!--隐藏域，为了将选择的一级分类的id传递到后台-->
+              <input type="hidden" name="categoryId" id="categoryId">
+            </div>
           </div>
-          <!--点击按钮-->
+
+          <!--输入二级分类名称-->
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="请输入二级分类的名称" name="brandName">
+          </div>
+
+          <!--上传图片-->
+          <div class="form-group">
+            <div class="fileupload_box">
+              <button class="btn btn-default">上传图片</button>
+              <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic">
+            </div>
+
+          </div>
+
+          <!--显示的图片-->
+          <div class="form-group img_box">
+            <img src="images/none.png" width="100" height="100">
+            <!--隐藏域，为了将brandLogo品牌图片的值传递给后台-->
+            <input type="hidden" name="brandLogo"id="brandLogo">
+            <!--隐藏域，为了将hot的值传递给后台-->
+            <input type="hidden" name="hot" value="1">
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
             <button type="submit" class="btn btn-primary">添加</button>
@@ -146,7 +183,7 @@
   </div>
 </div>
 
-<!--分页模板-->
+<!--分页渲染模板-->
 <script type="text/html" id="tmp1">
   {{ each rows v i}}
     <tr>
@@ -158,8 +195,17 @@
   {{ /each}}
 </script>
 
+<!--一级分类模板-->
+<script type="text/html" id="cates">
+  {{ each rows v i }}
+    <li><a href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
 
 <script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
