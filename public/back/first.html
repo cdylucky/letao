@@ -122,18 +122,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title">温馨提示</h4>
+        <h4 class="modal-title">添加分类</h4>
       </div>
       <div class="modal-body">
-        <p class="text-danger">
-          <span class="glyphicon glyphicon-info-sign"></span>
-          你确定要执行此操作吗？？
-        </p>
+        <!--输入一级分类内容框-->
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入一级分类的名称" name="categoryName">
+          </div>
+          <!--点击按钮-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary">添加</button>
+          </div>
+
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary btn_confirm">确定</button>
-      </div>
+
     </div>
   </div>
 </div>

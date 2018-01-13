@@ -39,4 +39,55 @@ $(function() {
   };
 
   render();
+
+  //功能2：添加分类：
+  $('.btn_add').on('click',function() {
+
+    $('#addModal').modal('show');
+  })
+
+  //表单验证
+  var $form = $('form');
+  $form.bootstrapValidator({
+    //指定校验是的图标显示
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+
+    // //配置校验规则，name属性
+    fields: {
+      categoryName: {
+        validators: {
+          notEmpty: {
+            message : '请输入一级分类的名称'
+          }
+        }
+      }
+    }
+  });
+
+  //表单验证通过，进行ajax请求
+  $form.on('success.form.bv',function(e) {
+    //阻止浏览器默认行为
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/category/addTopCategory',
+      data: $form.serialize(),
+      success: function(info){
+        console.log(info);
+        if(info.success){
+          //关闭模态框
+          $('#addModal').modal('hide');
+          //重新渲染页面
+          page = 1;
+          render();
+          //表单重置
+          $form.data('bootstrapValidator').resetForm(true);
+        }
+      }
+    })
+  })
 })
