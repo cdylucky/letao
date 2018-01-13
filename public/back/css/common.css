@@ -126,6 +126,16 @@ html,body {
   height: 400px;
 }
 
+/*user区*/
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.paginator-box {
+  text-align: right;
+}
+
 
 
 
