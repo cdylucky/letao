@@ -113,7 +113,7 @@ $(function() {
       console.log(data.result);
 
       //控制上传的个数
-      if(imgArr.length == 3) {
+      if(imgArr.length >= 3) {
         return false;
       }
 
