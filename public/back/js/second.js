@@ -27,7 +27,7 @@ $(function(){
           totalPages: Math.ceil(info.total/info.size),
           onPageClicked: function(a,b,c,p) {
             page = p;
-            render(page);
+            render();
           }
         })
 

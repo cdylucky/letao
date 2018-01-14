@@ -30,7 +30,7 @@ $(function() {
             console.log(p);
             //修改当前页，重新渲染
             page = p;
-            render(page);
+            render();
           }
 
         })
