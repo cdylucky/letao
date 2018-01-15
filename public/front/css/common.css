@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  display: block;
+}
+html,body {
+  height: 100%;
+}
+.lt_container {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 45px;
+  padding-bottom: 55px;
+}
+
+/*乐淘头部*/
+.lt_header {
+  height: 45px;
+  width: 100%;
+  background-color: #069;
+  position: absolute;
+  top: 0;
+}
+
+.lt_header .icon_left,
+.lt_header .icon_right {
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+
+.lt_header .icon_left {
+  left: 0;
+
+}
+
+.lt_header .icon_right {
+  right: 0;
+}
+
+.lt_header h4 {
+  line-height: 45px;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+}
+
+/*乐淘底部*/
+.lt_footer {
+  height: 55px;
+  width: 100%;
+  background-color: #069;
+  position: absolute;
+  bottom: 0;
+}
+
+.lt_footer li {
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.lt_footer li.active a {
+  color: darkorange;
+}
+
+.lt_footer li.active p {
+  color: darkorange;
+}
+
+.lt_footer a {
+  color: #fff;
+}
+.lt_footer p {
+  color: #fff;
+  margin: 0;
+}
+
+.lt_main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/*商品样式*/
+.lt_product {
+  padding: 10px;
+}
+.lt_product a {
+  float: left;
+  width: 48%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+
+}
+.lt_product a:nth-child(odd) {
+  float: right;
+}
+
+.lt_product a span:first-child {
+  color: red;
+}
+
+.lt_product a span:last-child {
+  text-decoration: line-through;
+}
+
+.tips {
+  padding: 10px;
+  color: #000;
+}
+
