@@ -114,7 +114,8 @@ html,body {
   margin-bottom: 20px;
 
 }
-.lt_product a:nth-child(odd) {
+.lt_product a:nth-child(even) {
+  /*margin-right: 4%;*/
   float: right;
 }
 
@@ -129,5 +130,33 @@ html,body {
 .tips {
   padding: 10px;
   color: #000;
+}
+
+.lt_product .item .proName {
+  height: 42px;
+}
+
+/*搜索样式*/
+
+.lt_search {
+  padding: 10px;
+  position: relative;
+}
+
+.lt_search .search_text {
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #007aff;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #666;
+  border-radius: 5px;
+}
+
+.lt_search .search_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 0 5px 5px 0;
 }
 

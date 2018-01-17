@@ -233,8 +233,8 @@ $(function() {
     var param = $form.serialize();
     //将图片的地址拼接到后面
     param += '&picName1='+ imgArr[0].picName+ '&picAddr1=' + imgArr[0].picAddr;
-    param += '&picName1='+ imgArr[1].picName+ '&picAddr1=' + imgArr[1].picAddr;
-    param += '&picName1='+ imgArr[2].picName+ '&picAddr1=' + imgArr[2].picAddr;
+    param += '&picName2='+ imgArr[1].picName+ '&picAddr2=' + imgArr[1].picAddr;
+    param += '&picName3='+ imgArr[2].picName+ '&picAddr3=' + imgArr[2].picAddr;
 
     $.ajax({
       type: 'post',
